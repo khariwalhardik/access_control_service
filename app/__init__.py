@@ -2,26 +2,36 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from .config import Config
-from .models import *
 
-# Initialize DB globally
+# Initialize extensions globally
 db = SQLAlchemy()
 migrate = Migrate()
 
 def create_app():
+    """Application factory function for Flask"""
     app = Flask(__name__)
 
-    # Load configuration
+    # Load configuration from config.py
     app.config.from_object(Config)
 
     # Initialize extensions
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # Import models (so Flask knows about them before creating tables)
-    from . import models
+    # Import models inside the app context to register them
+    with app.app_context():
+        from .models import (
+            DSO,
+            OfficeDSO,
+            Role,
+            Permission,
+            RolePermission,
+            UserOfficeRole,
+            UserDSORole
+        )
+        # Note: No need to 'pass' here — just importing is enough to register models
 
-    # Example route to verify setup
+    # Health check route for testing
     @app.route("/health")
     def health_check():
         return {"status": "ok", "message": "Access Control Service running"}

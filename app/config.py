@@ -5,13 +5,22 @@ from dotenv import load_dotenv
 load_dotenv()
 
 class Config:
-    # Basic app config
-    SECRET_KEY = os.getenv("SECRET_KEY", "fallback_secret_key")
-    DEBUG = os.getenv("FLASK_DEBUG", "False").lower() == "true"
+    # Flask environment
+    FLASK_ENV = os.getenv("FLASK_ENV", "development")
+    DEBUG = os.getenv("FLASK_DEBUG", "True").lower() in ["true", "1", "t"]
+    SECRET_KEY = os.getenv("SECRET_KEY", "default_secret_key")
 
-    # Database
-    SQLALCHEMY_DATABASE_URI = os.getenv("DATABASE_URL")
+    # PostgreSQL configuration
+    DB_USER = os.getenv("DB_USER", "postgres")
+    DB_PASSWORD = os.getenv("DB_PASSWORD", "")
+    DB_NAME = os.getenv("DB_NAME", "access_control_db")
+    DB_HOST = os.getenv("DB_HOST", "localhost")
+    DB_PORT = os.getenv("DB_PORT", "5432")
+
+    # Construct database URI dynamically
+    SQLALCHEMY_DATABASE_URI = (
+        f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    )
+
+    # SQLAlchemy settings
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-
-    # JWT secret for later use
-    JWT_SECRET_KEY = os.getenv("JWT_SECRET_KEY", "fallback_jwt_secret")

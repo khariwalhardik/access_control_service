@@ -1,5 +1,5 @@
 from datetime import datetime
-from app import db
+from src import db
 
 class UserDSORole(db.Model):
     __tablename__ = "user_dso_role"

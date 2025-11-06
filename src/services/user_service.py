@@ -1,4 +1,4 @@
-from app.models import UserOfficeRole, UserDSORole, Role
+from src.models import UserOfficeRole, UserDSORole, Role
 
 def get_user_roles(user_id):
     """

@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request
-from app.services.access_service import check_permission
+from src.services.access_service import check_permission
 
 access_bp = Blueprint("access", __name__)
 

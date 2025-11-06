@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.services.user_service import get_user_roles
+from src.services.user_service import get_user_roles
 
 user_bp = Blueprint("user", __name__)
 

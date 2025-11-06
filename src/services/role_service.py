@@ -1,5 +1,5 @@
-from app.models import Role, Permission, RolePermission
-from app import db
+from src.models import Role, Permission, RolePermission
+from src import db
 
 def get_role_permissions(role_id):
     """Return a list of permissions associated with a given role."""

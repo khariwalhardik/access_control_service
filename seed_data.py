@@ -1,9 +1,9 @@
-from app import create_app, db
+from src import create_app, db
 
 app = create_app()
 
 with app.app_context():
-    from app.models import (
+    from src.models import (
         DSO, OfficeDSO,
         Role, Permission, RolePermission,
         UserOfficeRole, UserDSORole
@@ -25,11 +25,11 @@ with app.app_context():
     # 2️⃣ Offices under each DSO
     # -----------------------------
     offices = [
-        OfficeDSO(office_id=101, dso_id=dso1.id),
-        OfficeDSO(office_id=102, dso_id=dso1.id),
-        OfficeDSO(office_id=103, dso_id=dso1.id),
-        OfficeDSO(office_id=201, dso_id=dso2.id),
-        OfficeDSO(office_id=202, dso_id=dso2.id)
+        OfficeDSO(office_id=1, dso_id=dso1.id),
+        OfficeDSO(office_id=2, dso_id=dso1.id),
+        OfficeDSO(office_id=3, dso_id=dso1.id),
+        OfficeDSO(office_id=4, dso_id=dso2.id),
+        OfficeDSO(office_id=5, dso_id=dso2.id)
     ]
     db.session.add_all(offices)
 

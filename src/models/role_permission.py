@@ -1,4 +1,4 @@
-from app import db
+from src import db
 
 class RolePermission(db.Model):
     __tablename__ = "role_permission"

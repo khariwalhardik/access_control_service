@@ -1,6 +1,6 @@
-from app.services.user_service import get_user_roles
-from app.services.role_service import get_role_permissions
-from app.models import OfficeDSO
+from src.services.user_service import get_user_roles
+from src.services.role_service import get_role_permissions
+from src.models import OfficeDSO
 
 def check_permission(user_id, office_id, action):
     """

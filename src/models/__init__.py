@@ -1,4 +1,4 @@
-from app import db
+from src import db
 
 # Import all model classes
 from .dso import DSO

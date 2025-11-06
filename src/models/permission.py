@@ -1,5 +1,5 @@
 from datetime import datetime
-from app import db
+from src import db
 
 class Permission(db.Model):
     __tablename__ = "permission"

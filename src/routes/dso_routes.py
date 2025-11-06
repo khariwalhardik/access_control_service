@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from app.services.dso_service import get_offices_by_dso, get_dso_by_office
+from src.services.dso_service import get_offices_by_dso, get_dso_by_office
 
 dso_bp = Blueprint("dso", __name__)
 

@@ -1,5 +1,5 @@
 from datetime import datetime
-from app import db
+from src import db
 
 class UserOfficeRole(db.Model):
     __tablename__ = "user_office_role"

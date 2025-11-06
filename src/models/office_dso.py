@@ -1,4 +1,4 @@
-from app import db
+from src import db
 
 class OfficeDSO(db.Model):
     __tablename__ = "office_dso"

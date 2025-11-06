@@ -19,10 +19,10 @@ def create_app():
     migrate.init_app(app, db)
 
     # Import models AFTER db is initialized to register them
-    from app import models  # This imports all models via app/models/__init__.py
+    from src import models  # This imports all models via app/models/__init__.py
 
     # Register all route blueprints
-    from app.routes import all_blueprints
+    from src.routes import all_blueprints
     for bp, prefix in all_blueprints:
         app.register_blueprint(bp, url_prefix=prefix)
 

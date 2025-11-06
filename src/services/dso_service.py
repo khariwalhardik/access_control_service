@@ -1,5 +1,5 @@
-from app.models import OfficeDSO, DSO
-from app import db
+from src.models import OfficeDSO, DSO
+from src import db
 
 def get_offices_by_dso(dso_id):
     """
@@ -14,6 +14,7 @@ def get_dso_by_office(office_id):
     Return the DSO that owns a given office.
     """
     office_dso = OfficeDSO.query.filter_by(office_id=office_id).first()
+    print('***************',office_dso, office_id)
     if not office_dso:
         return None
 

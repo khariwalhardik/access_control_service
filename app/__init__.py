@@ -18,21 +18,16 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # Import models inside the app context to register them
-    with app.app_context():
-        from .models import (
-            DSO,
-            OfficeDSO,
-            Role,
-            Permission,
-            RolePermission,
-            UserOfficeRole,
-            UserDSORole
-        )
-        # Note: No need to 'pass' here — just importing is enough to register models
+    # Import models AFTER db is initialized to register them
+    from app import models  # This imports all models via app/models/__init__.py
+
+    # Register all route blueprints
+    from app.routes import all_blueprints
+    for bp, prefix in all_blueprints:
+        app.register_blueprint(bp, url_prefix=prefix)
 
     # Health check route for testing
-    @app.route("/health")
+    @app.route("/health", methods=["GET"])
     def health_check():
         return {"status": "ok", "message": "Access Control Service running"}
 

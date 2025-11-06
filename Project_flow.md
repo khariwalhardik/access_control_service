@@ -1,8 +1,3 @@
-Perfect 🎯 — before we start coding piece-by-piece, it’s smart to zoom out and see **the full project flow**: from setup → database → API → testing → delivery.
-Below is a *complete end-to-end flowchart* written as steps (so you can picture the architecture + implementation order).
-
----
-
 ## 🧭 **Overall Flow of the “Access Control Service” Project**
 
 ### 🧱 **Stage 1 – Setup & Scaffolding**

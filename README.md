@@ -1,11 +1,11 @@
-# 🏥 Access Control Service (Multi-Office & DSO-Level Role Management)
+#  Access Control Service (Multi-Office & DSO-Level Role Management)
 
 This project is a **modular access control microservice** designed for a dental/orthodontic SaaS platform.  
 It extends the existing single-office user system to support **multi-office access and DSO-level roles** (Dental Service Organizations).
 
 ---
 
-## 🚀 Features
+##  Features
 
 - Role-Based Access Control (**RBAC**) + Attribute-Based Access Control (**ABAC**) hybrid
 - DSO-level and Office-level user permissions
@@ -15,7 +15,7 @@ It extends the existing single-office user system to support **multi-office acce
 
 ---
 
-## 🧠 Project Overview
+##  Project Overview
 
 ### Why this exists
 
@@ -29,7 +29,7 @@ This service solves that by introducing:
 
 ---
 
-## 🏗️ Project Structure
+##  Project Structure
 ```bash
 access_control_service/
 ├── app/
@@ -61,14 +61,14 @@ access_control_service/
 └── api.md # API Documentation
 ```
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
-### 1️⃣ Clone the Repository
+### 1️ Clone the Repository
 ```bash
 git clone https://github.com/<your-username>/access_control_service.git
 cd access_control_service
 ```
-### 2️⃣ Create and Activate Virtual Environment
+### 2️ Create and Activate Virtual Environment
 ### Create venv
 ```bash
 python -m venv venv
@@ -83,12 +83,12 @@ venv\Scripts\activate
 source venv/bin/activate
 ```
 
-### 3️⃣ Install Dependencies
+### 3️ Install Dependencies
 ```
 pip install -r requirements.txt
 ```
 
-### 4️⃣ Configure Environment
+### 4️ Configure Environment
 
 Edit .env file with your PostgreSQL credentials:
 ```
@@ -97,14 +97,14 @@ FLASK_DEBUG=True
 SECRET_KEY=supersecretkey_change_this
 DATABASE_URL=postgresql://postgres:<your-password>@localhost:5432/access_control_db
 ```
-### 5️⃣ Initialize and Seed Database
+### 5️ Initialize and Seed Database
 
 Make sure PostgreSQL is running, then run:
 ```
 python seed_data.py
 ```
 
-### 6️⃣ Run the Application
+### 6️ Run the Application
 ```
 python app.py
 ```
@@ -113,11 +113,11 @@ Your server will start at:
 
 http://127.0.0.1:5000
 
-### 7️⃣ Test APIs in Postman
+### 7️ Test APIs in Postman
 
 Import the provided endpoints from api.md or manually test via Postman.
 ```
-🧩 Tech Stack
+ Tech Stack
 Component	Technology
 Backend	Flask
 Database	PostgreSQL
@@ -125,7 +125,7 @@ ORM	SQLAlchemy
 Auth Model	RBAC + ABAC hybrid
 Testing	Postman
 ```
-## 🔒 Authorization Logic
+##  Authorization Logic
 
 The service uses a hybrid RBAC + ABAC approach:
 
@@ -139,7 +139,7 @@ Access decisions are evaluated dynamically (ABAC) based on:
 
 - Action → requested operation
 
-### 🧪 Example Query
+###  Example Query
 
 POST /api/check-permission
 ```json
@@ -164,7 +164,7 @@ Response
 ## 📘 **api.md**
 
 ```markdown
-# 🌐 API Documentation — Access Control Service
+#  API Documentation — Access Control Service
 
 All endpoints are prefixed with `/api`.
 

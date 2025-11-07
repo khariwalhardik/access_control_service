@@ -112,7 +112,7 @@ Access decisions are evaluated dynamically (ABAC) based on:
 
 For detailed endpoint descriptions and request/response examples, please refer to the full API documentation:
 
-👉 [**View API Documentation (api.md)**](./API.md)
+👉 [**View API Documentation (API.md)**](./API.md)
 
 ---
 

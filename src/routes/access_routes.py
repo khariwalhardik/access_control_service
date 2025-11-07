@@ -3,7 +3,7 @@ from src.services.access_service import check_permission
 
 access_bp = Blueprint("access", __name__)
 
-@access_bp.route("/check-permission", methods=["POST"])
+@access_bp.route("/check-permission", methods=["GET", "POST"])
 def check_permission_route():
     """Check if a user is allowed to perform an action."""
     data = request.get_json()

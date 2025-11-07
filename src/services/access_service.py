@@ -10,25 +10,30 @@ def check_permission(user_id, office_id, action):
       - DSO-level roles that cover multiple offices
     """
     user_roles = get_user_roles(user_id)
-
+    reason = "No matching role found for the requested action."
+    print(f"User Roles: {user_roles}")
     for role in user_roles:
         scope = role.get("scope")
         role_id = role.get("role_id")
         permissions = get_role_permissions(role_id)
 
-        # Case 1️⃣ — Office-level role
-        if scope == "office" and role.get("office_id") == office_id:
-            if action in permissions:
-                return {"allowed": True, "granted_by": role.get("role")}
 
-        # Case 2️⃣ — DSO-level role (covers multiple offices)
+        reason =f"User doesn't has any role at office {office_id}."
+
+        # Case 1️ — Office-level role
+        if scope == "office" and role.get("office_id") == office_id:
+            reason = f"Role '{role.get('role')}' at office {office_id} does not grant '{action}' permission."
+            if action in permissions:
+                return {"allowed": True, "granted_by_role": role.get("role")}
+        
+        # Case 2 — DSO-level role (covers multiple offices)
         elif scope == "dso":
             dso_id = role.get("dso_id")
-
             # Check if the office belongs to this DSO
             office_dso = OfficeDSO.query.filter_by(office_id=office_id, dso_id=dso_id).first()
-            if office_dso and action in permissions:
-                return {"allowed": True, "granted_by": f"{role.get('role')} (DSO Level)"}
-
+            if office_dso:
+                reason = f"Role '{role.get('role')}' at DSO {dso_id} does not grant '{action}' permission for office {office_id}."
+                if action in permissions:
+                    return {"allowed": True, "granted_by_role": f"{role.get('role')} (DSO Level)"}
     # If no rule matched
-    return {"allowed": False}
+    return {"allowed": False, "reason": reason}

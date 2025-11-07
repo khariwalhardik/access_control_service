@@ -139,33 +139,12 @@ Access decisions are evaluated dynamically (ABAC) based on:
 
 - Action → requested operation
 
-###  Example Query
+---
+## 📘 API Documentation
 
-POST /api/check-permission
-```json
-{
-  "userId": 1,
-  "officeId": 101,
-  "action": "edit_records"
-}
-```
+For detailed endpoint descriptions and request/response examples, please refer to the full API documentation:
 
-Response
-```json
-{
-  "allowed": true,
-  "granted_by_role": "DSO Admin (DSO Level)"
-}
-```
-
+👉 [**View API Documentation (api.md)**](./API.md)
 
 ---
-
-## 📘 **api.md**
-
-```markdown
-#  API Documentation — Access Control Service
-
-All endpoints are prefixed with `/api`.
-
 

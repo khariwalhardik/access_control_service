@@ -10,7 +10,7 @@ def check_permission(user_id, office_id, action):
       - DSO-level roles that cover multiple offices
     """
     user_roles = get_user_roles(user_id)
-    reason = "you don't have permission"
+    reason = "Insufficient permissions"
     for role in user_roles:
         scope = role.get("scope")
         role_id = role.get("role_id")

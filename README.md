@@ -1,4 +1,4 @@
-#  Access Control Service (Multi-Office & DSO-Level Role Management)
+#  Access Control Service
 
 This project is a **modular access control microservice** designed for a dental/orthodontic SaaS platform.  
 It extends the existing single-office user system to support **multi-office access and DSO-level roles** (Dental Service Organizations).

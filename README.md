@@ -29,38 +29,6 @@ This service solves that by introducing:
 
 ---
 
-##  Project Structure
-```bash
-access_control_service/
-├── app/
-│ ├── init.py # Flask app setup
-│ ├── config.py # Environment configuration
-│ ├── models/ # SQLAlchemy models
-│ │ ├── init.py
-│ │ ├── dso.py
-│ │ ├── office_dso.py
-│ │ ├── role.py
-│ │ ├── permission.py
-│ │ ├── role_permission.py
-│ │ ├── user_office_role.py
-│ │ └── user_dso_role.py
-│ ├── routes/ # API route definitions
-│ │ ├── init.py
-│ │ ├── access_routes.py
-│ │ ├── user_routes.py
-│ │ └── dso_routes.py
-│ └── services/ # Business logic (ABAC + RBAC)
-│ ├── access_service.py
-│ ├── role_service.py
-│ └── user_service.py
-├── app.py # Entry point
-├── seed_data.py # Seeds sample DSO, office, role, user data
-├── .env # Environment variables
-├── requirements.txt # Dependencies
-├── README.md # Documentation
-└── api.md # API Documentation
-```
-
 ##  Setup Instructions
 
 ### 1️ Clone the Repository
